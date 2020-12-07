@@ -1,25 +1,25 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
+# Specify the template type. Valid values are as follows.
+# - For Terraform: TF
+# - For AWS CloudFormation: CFT
+# - For Kubernetes: K8S
 
-trigger:
-- master
+template_type: TF
 
-pool:
-  vmImage: 'ubuntu-latest'
+# Valid values for terraform_version are 0.11 or 0.12.
 
-steps:
-- task: Prisma Cloud IaC Scan@2
-  inputs:
-    Path: '.'
-    prismaCloudService: 'Prisma IAC TF'
-    High: '0'
-    Medium: '0'
-    Low: '0'
-    Operator: 'or'
-    Tags: 'loo_tf'
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+terraform_version: 0.12
+
+# If  terraform_version is 0.12, then terraform_012_parameters is required.
+# The value of terraform_012_parameters is an array of root_modules. The value for root_module is relative to your repository branch root directory.
+# Each root module can have:
+# - variable_files, which is an array of variable file names relative to your repository branch root directory
+# - variables, which is an array of name/value pairs that identify the input variables for the module
+
+terraform_012_parameters:
+  - root_module: rich-value-types/network/
+  - root_module: for-expressions/
+  - root_module: datafactory/
+tags:
+  - 'Org: Panw'
+  - 'Team: ShiftLeft'
+  - 'Env: Dev'
