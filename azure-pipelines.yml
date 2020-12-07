@@ -13,12 +13,12 @@ steps:
 - task: Prisma Cloud IaC Scan@2
   inputs:
     Path: '.'
-    prismaCloudService: 'Prisma IAC TF'
-    High: '0'
-    Medium: '0'
-    Low: '0'
+    prismaCloudService: 'IaC scan'
+    High: '1'
+    Medium: '1'
+    Low: '1'
     Operator: 'or'
-    Tags: 'loo_tf'
+    Tags: 'tf'
 - script: |
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
