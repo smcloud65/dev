@@ -8,9 +8,7 @@ trigger:
 
 pool:
   vmImage: 'ubuntu-latest'
-
-steps:
-- task: Prisma Cloud IaC Scan@1
+- task: Prisma Cloud IaC Scan@3
   inputs:
     Path: '.'
     prismaCloudService: 'IaC scan'
@@ -18,7 +16,6 @@ steps:
     Medium: '1'
     Low: '1'
     Operator: 'or'
-    Tags: 'tf'
 - script: |
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
