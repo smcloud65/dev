@@ -10,7 +10,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- task: Prisma Cloud IaC Scan@2
+- task: Prisma Cloud IaC Scan@1
   inputs:
     Path: '.'
     prismaCloudService: 'IaC scan'
