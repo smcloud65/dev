@@ -1,13 +1,4 @@
 # Specify the template type. Valid values are as follows.
-- task: Prisma Cloud IaC Scan@3
-  inputs:
-    Path: '.'
-    prismaCloudService: 'SEsandbox'
-    High: '1'
-    Medium: '1'
-    Low: '1'
-    Operator: 'or'
-    Tags: 'repo:iac-scan'
 # - For Terraform: TF
 # - For AWS CloudFormation: CFT
 # - For Kubernetes: K8S
@@ -32,3 +23,13 @@ tags:
   - 'Org: Panw'
   - 'Team: ShiftLeft'
   - 'Env: Dev'
+
+- task: Prisma Cloud IaC Scan@3
+  inputs:
+    Path: '.'
+    prismaCloudService: 'SEsandbox'
+    High: '1'
+    Medium: '1'
+    Low: '1'
+    Operator: 'or'
+    Tags: 'repo:iac-scan'
