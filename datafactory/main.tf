@@ -16,3 +16,4 @@ output "data_factory_sp_id" {
 output "data_factory_id" {
   value = azurerm_data_factory.df.id
 }
+#test#
